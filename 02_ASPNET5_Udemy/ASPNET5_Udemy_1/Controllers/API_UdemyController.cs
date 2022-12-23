@@ -11,20 +11,20 @@ using Microsoft.Extensions.Logging;
 namespace ASPNET5_Udemy_1.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class CalculatorController : ControllerBase
+    [Route("api/[controller]")]
+    public class API_UdemyController : ControllerBase
     {
 
-        private readonly ILogger<CalculatorController> _logger;
+        private readonly ILogger<API_UdemyController> _logger;
         private IPersonService _personService;
 
-        public CalculatorController(ILogger<CalculatorController> logger, IPersonService personService)
+        public API_UdemyController(ILogger<API_UdemyController> logger, IPersonService personService)
         {
             _logger = logger;
             _personService = personService;
         }
 
-        [HttpGet]
+        [HttpGet("FindAll")]
         public IActionResult GetFindAll()
         {
             return Ok(_personService.FindAll());
@@ -38,14 +38,14 @@ namespace ASPNET5_Udemy_1.Controllers
             return Ok(person);
         }
 
-        [HttpPost]
+        [HttpPost("Created")]
         public IActionResult PostCreate([FromBody] Person person)
         {
             if (person == null) return BadRequest();
             return Ok(_personService.Create(person));
         }
 
-        [HttpPut]
+        [HttpPut("Update")]
         public IActionResult PutUpdate([FromBody] Person person)
         {
             if (person == null) return BadRequest();
