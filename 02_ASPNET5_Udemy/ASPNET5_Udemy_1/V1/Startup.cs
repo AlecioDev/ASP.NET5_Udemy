@@ -37,9 +37,12 @@ namespace ASPNET5_Udemy_1
             services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
 
             services.AddScoped<IPersonService, PersonServiceImplementation>();
+
+            //services.AddApiVersioning();
+
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ASPNET5_Udemy_1", Version = "v1" }); 
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ASPNET5_Udemy_1", Version = "v1" });
             });
         }
 

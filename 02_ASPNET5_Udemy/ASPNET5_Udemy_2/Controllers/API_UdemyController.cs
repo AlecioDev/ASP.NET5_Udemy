@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace ASPNET5_Udemy_1.Controllers
 {
+    [ApiVersion("1.1")]
     [ApiController]
     [Route("api/[controller]")]
     public class API_UdemyController : ControllerBase
